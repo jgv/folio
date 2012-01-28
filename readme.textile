@@ -1,4 +1,4 @@
-h1. flatfile
+h1. Flatfile
 
 p. Flatfile allows non-technical people to create beautiful portfolio websites using the names of files and directories in the folder called "Projects". Simply upload the contents of the "Flatfile" folder to a server and it will just work.
 
