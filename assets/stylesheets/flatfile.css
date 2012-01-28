@@ -1,0 +1,57 @@
+body { 
+    font-family: Georgia, Times, serif; }
+
+header, #projects { padding: 100px 100px 0 100px; }
+
+header h1 { 
+    height: 200px; 
+    width:200px; 
+    border-radius: 100px; 
+    background: #111; 
+    line-height: 200px;
+    text-align:center;
+    color: snow;
+    font-weight: 100;
+    display:inline-block;
+}
+
+header p { 
+    display: inline;
+    margin-left: 100px;
+}
+
+.project {
+    margin-bottom: 100px;
+}
+
+.project h1 { 
+    font-style:italic; 
+    font-weight: lighter; 
+}
+
+.project img { max-width: 600px }
+
+footer {
+    background: #111;
+    color: white;    
+    position: absolute;
+    height: 200px;
+    width:100%;
+    padding: 0 100px;
+}
+
+footer h3 {
+    font-weight: lighter;
+}
+
+footer h3 {
+    font-size: 16px;
+}
+footer p {
+    font-size: 13px;
+}
+
+footer a, a:visited {
+    color: #FFFFA9;
+    text-decoration:none;
+}
