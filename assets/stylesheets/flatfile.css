@@ -1,5 +1,31 @@
 body { 
-    font-family: Georgia, Times, serif; }
+    font-family: Georgia, Times, serif; 
+    text-rendering: optimizeLegibility;
+}
+
+#container {
+    display: block;
+    margin: 0 auto;
+    width: 960px;
+}
+
+#container {
+    padding: 50px 0;
+}
+
+#container img {
+    margin: 0 auto;
+    display:block;
+}
+
+#container a, a:visited {
+    text-decoration:none;
+    color: gray;
+}
+
+#container a:hover {
+    color: blue;
+}
 
 header, #projects { padding: 100px 100px 0 100px; }
 
@@ -20,24 +46,18 @@ header p {
     margin-left: 100px;
 }
 
-.project {
-    margin-bottom: 100px;
+#container h3 {
+    border-top: thin solid lightgray;
+    padding-top:25px;
+    font-weight:lighter;
 }
-
-.project h1 { 
-    font-style:italic; 
-    font-weight: lighter; 
-}
-
-.project img { max-width: 600px }
-
 footer {
     background: #111;
     color: white;    
-    position: absolute;
     height: 200px;
-    width:100%;
     padding: 0 100px;
+    bottom: 0;
+    padding: 50px;
 }
 
 footer h3 {
