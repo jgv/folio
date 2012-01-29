@@ -77,3 +77,11 @@ footer a, a:visited {
     color: #FFFFA9;
     text-decoration:none;
 }
+
+sup {
+    margin-left: 5px;
+    color: red;
+    font-size:60%;
+    position:relative;
+    top: -65px;
+}
