@@ -34,10 +34,8 @@ header p {
 footer {
     background: #111;
     color: white;    
-    position: absolute;
     height: 200px;
-    width:100%;
-    padding: 0 100px;
+    padding: 50px 100px;
 }
 
 footer h3 {
