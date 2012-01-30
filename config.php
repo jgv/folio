@@ -1,6 +1,6 @@
 <?php
 
-$your_headline = "Flatfile";
+$your_headline = "Folio";
 
 $your_byline = "The easiest way to make a portfolio website.";
 

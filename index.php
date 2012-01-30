@@ -1,12 +1,12 @@
 <?php  
-require_once('src/flatfile.php'); 
+require_once('src/folio.php'); 
 require_once('config.php');
-$projects = new Flatfile();
+$projects = new Folio();
 ?>
 <!doctype html>
 <html>
   <head>
-    <title>Flatfile</title>
+    <title>Folio</title>
     <script src="assets/javascripts/json2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
     <script src="assets/javascripts/underscore.js"></script>
@@ -16,9 +16,9 @@ $projects = new Flatfile();
     <script src="assets/javascripts/backbone-support/composite_view.js"></script>
     <script src="assets/javascripts/backbone-support/swapping_router.js"></script>
     <script src="assets/javascripts/icanhaz.js"></script>
-    <script src="assets/javascripts/flatfile.js"></script>
+    <script src="assets/javascripts/folio.js"></script>
     <link href="assets/stylesheets/normalize.css" rel="stylesheet" type="text/css" />
-    <link href="assets/stylesheets/flatfile.css" rel="stylesheet" type="text/css" />
+    <link href="assets/stylesheets/folio.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
 
@@ -32,7 +32,7 @@ $projects = new Flatfile();
 
     <footer>
       <h3>Created by <a href="http://jonathanvingiano.com">Jonathan Vingiano</a> at 319 Scholes' Art Hack Day.</h3>
-      <p>Contributions to Flatfile are welcome on <a href="https://github.com/jgv/flatfile">Github</a>.</p>
+      <p>Contributions to Folio are welcome on <a href="https://github.com/jgv/folio">Github</a>.</p>
     </footer>
 
     <script id="project" type="text/html">
@@ -53,7 +53,7 @@ $projects = new Flatfile();
         var json_div       = document.createElement('div');
         json_div.innerHTML = $('#bootstrap').text();
         var data           = JSON.parse(json_div.innerHTML);
-        Flatfile.init(data);
+        Folio.init(data);
         });
     </script>
   </body>

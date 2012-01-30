@@ -1,11 +1,11 @@
-var Flatfile = {
+var Folio = {
   Models: {},
   Collections: {},
   Routers: {},
   Views: {},
   init: function(data){
-    this.projects = new Flatfile.Collections.Projects(data.projects);
-    new Flatfile.Routers.Projects({ collection: this.projects });
+    this.projects = new Folio.Collections.Projects(data.projects);
+    new Folio.Routers.Projects({ collection: this.projects });
     if (!Backbone.history.started) {
       Backbone.history.start();
       Backbone.history.started = true;
@@ -14,7 +14,7 @@ var Flatfile = {
 };
 
 
-Flatfile.Routers.Projects = Support.SwappingRouter.extend({
+Folio.Routers.Projects = Support.SwappingRouter.extend({
   initialize: function(options){
     this.el = $("#projects");
     this.collection = options.collection;
@@ -26,7 +26,7 @@ Flatfile.Routers.Projects = Support.SwappingRouter.extend({
   },
   
   index: function(){
-    var view = new Flatfile.Views.Index({ collection: this.collection });
+    var view = new Folio.Views.Index({ collection: this.collection });
     this.swap(view);
   },
   
@@ -35,14 +35,14 @@ Flatfile.Routers.Projects = Support.SwappingRouter.extend({
     var self = this;
     project.fetch({
       success: function(){
-        var view = new Flatfile.Views.Show({ model: project });
+        var view = new Folio.Views.Show({ model: project });
         self.swap(view);
       }
     });
   }  
 });
 
-Flatfile.Models.Project = Backbone.Model.extend({
+Folio.Models.Project = Backbone.Model.extend({
   urlRoot: 'project',
   
   defaults: {
@@ -52,13 +52,13 @@ Flatfile.Models.Project = Backbone.Model.extend({
   }  
 });
 
-Flatfile.Collections.Projects = Backbone.Collection.extend({
-  model: Flatfile.Models.Project,
+Folio.Collections.Projects = Backbone.Collection.extend({
+  model: Folio.Models.Project,
   url: '/projects'
 });
 
 
-Flatfile.Views.Index = Support.CompositeView.extend({
+Folio.Views.Index = Support.CompositeView.extend({
   initialize: function(){
     _.bindAll(this, 'render');
     this.collection.bind('add', this.render);

@@ -1,6 +1,6 @@
 <?php
 
-class Flatfile {
+class Folio {
 
   function __construct($style=''){
     // style will at one point dictate css &c. right now this does nothing,,
