@@ -36,7 +36,7 @@ $projects = new Folio();
       <p>Contributions to Folio are welcome on <a href="https://github.com/jgv/folio">Github</a>.</p>
     </footer>
 
-    <script id="project" type="text/html">
+    <script id="index" type="text/html">
       <div class="project" id="{{ id }}">
       <h1><a href="#/projects/{{ id }}">{{ title }}</a></h1>
       {{#images}}
@@ -44,6 +44,17 @@ $projects = new Folio();
       {{/images }}
         </div>
     </script>
+
+    <script id="show" type="text/html">
+      <div class="project" id="{{ id }}">
+      <h1>{{ title }}</h1>
+      {{#images}}
+        <img src="{{ src }}">
+      {{/images }}
+        </div>
+    </script>
+
+
 
     <script type='text/json' id='bootstrap'>
       <?php echo $projects->to_json(); ?>

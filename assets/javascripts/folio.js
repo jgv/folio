@@ -70,8 +70,8 @@ Folio.Views.Index = Support.CompositeView.extend({
         images: project.get('images'),
         id: project.get('id')
       };
-      proj = ich.project(data);
-      $("#projects").append(proj)
+      proj = ich.index(data);
+      $("#projects").append(proj);
     });
 
     return this;
@@ -102,7 +102,7 @@ Folio.Views.Show = Support.CompositeView.extend({
       images: self.model.get('images'),
       id: self.model.get('id')
     };
-    proj = ich.project(data);
+    proj = ich.show(data);
     $("#projects").append(proj);
     
     return this;
