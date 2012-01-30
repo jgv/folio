@@ -23,7 +23,9 @@ $projects = new Folio();
   <body>
 
     <header>
-      <h1><?php echo HEADLINE ?></h1>
+      <h1>
+        <a href="http://<?php echo $_SERVER['HTTP_HOST']  . $_SERVER['REQUEST_URI']; ?>"><?php echo HEADLINE ?></a>
+      </h1>
       <p><?php echo BYLINE ?></p>
     </header>
     

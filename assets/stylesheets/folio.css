@@ -17,6 +17,10 @@ header h1 {
     display:inline-block;
 }
 
+header h1 a, header h1 a:visited { color: white; text-decoration: none}
+
+header h1 a:hover { color: #FFFFA9; }
+
 header p { 
     display: inline;
     margin-left: 100px;
@@ -51,7 +55,7 @@ footer p {
     font-size: 13px;
 }
 
-footer a, a:visited {
+footer a, footer a:visited {
     color: #FFFFA9;
     text-decoration:none;
 }
