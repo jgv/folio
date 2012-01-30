@@ -22,9 +22,12 @@ class Folio {
    *
    */
   public function projects(){
+    $i = 1; // todo: clean this up
     foreach($this->project_titles() as $project){      
-      $project_object[] = array("title" => $project,
+      $project_object[] = array("id" => json_encode($i),
+                                "title" => $project,
                                 "images" => $this->images($project));
+      $i++;
     }
     return $project_object;
   }

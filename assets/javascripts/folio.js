@@ -30,15 +30,11 @@ Folio.Routers.Projects = Support.SwappingRouter.extend({
     this.swap(view);
   },
   
-  show: function(projects){
-    var projet = this.collection.get(projectId);
-    var self = this;
-    project.fetch({
-      success: function(){
-        var view = new Folio.Views.Show({ model: project });
-        self.swap(view);
-      }
-    });
+  show: function(projectId){
+    var project = this.collection.get(projectId);
+    console.log(project);
+    var view = new Folio.Views.Show({ model: project });
+    this.swap(view);
   }  
 });
 
@@ -69,16 +65,48 @@ Folio.Views.Index = Support.CompositeView.extend({
   render: function(){
     var self = this;
     this.collection.each(function(project){
-      console.log(project);
       var data = {
         title: project.get('title'),
         images: project.get('images'),
-        id: project.cid
+        id: project.get('id')
       };
       proj = ich.project(data);
       $("#projects").append(proj)
     });
 
     return this;
+  },
+
+  // not using this atm
+  // implement this for pretty urls that arent defined by ids
+  cleanTitle: function(title) {
+    var whitespace = $.trim(title);
+
+    return whitespace.replace(' ', '-').toLowerCase();
+
   }
+
+});
+
+Folio.Views.Show = Support.CompositeView.extend({
+  initialize: function(){
+    console.log(this);
+    _.bindAll(this, 'render');
+
+  },
+  
+  render: function(){
+    var self = this;
+    var data = {
+      title: self.model.get('title'),
+      images: self.model.get('images'),
+      id: self.model.get('id')
+    };
+    proj = ich.project(data);
+    $("#projects").append(proj);
+    
+    return this;
+  
+  }
+
 });

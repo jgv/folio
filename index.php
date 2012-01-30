@@ -22,7 +22,6 @@ $projects = new Folio();
   </head>
   <body>
 
-
     <header>
       <h1><?php echo HEADLINE ?></h1>
       <p><?php echo BYLINE ?></p>
@@ -37,7 +36,7 @@ $projects = new Folio();
 
     <script id="project" type="text/html">
       <div class="project" id="{{ id }}">
-      <h1>{{ title }}</h1>
+      <h1><a href="#/projects/{{ id }}">{{ title }}</a></h1>
       {{#images}}
         <img src="{{ src }}">
       {{/images }}

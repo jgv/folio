@@ -70,6 +70,8 @@ Backbone.sync = function(method, model, options) {
   var resp;
   var store = model.localStorage || model.collection.localStorage;
 
+  console.log(model.collection);
+
   switch (method) {
     case "read":    resp = model.id ? store.find(model) : store.findAll(); break;
     case "create":  resp = store.create(model);                            break;
