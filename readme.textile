@@ -1,6 +1,6 @@
-h1. Flatfile
+h1. Folio
 
-p. Flatfile allows non-technical people to create beautiful portfolio websites using the names of files and directories in the folder called "Projects". Simply upload the contents of the "Flatfile" folder to a server and it will just work.
+p. Folio allows non-technical people to create beautiful portfolio websites using the names of files and directories in the folder called "Projects". Simply upload the contents of the "Folio" folder to a server and it will just work.
 
 p. This project was made at "319 Scholes":http://twitter.com/319scholes for "Art Hack Day":http://arthackday.net/319scholes/.
 
