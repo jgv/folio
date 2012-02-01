@@ -26,7 +26,8 @@ class Folio {
     foreach($this->project_titles() as $project){      
       $project_object[] = array("id" => json_encode($i),
                                 "title" => $project,
-                                "images" => $this->images($project));
+                                "images" => $this->images($project),
+                                "description" => json_encode($this->description($project)));
       $i++;
     }
     return $project_object;
@@ -39,14 +40,10 @@ class Folio {
    */
   public function project_titles(){
 
-    $flatfile = array();
-    $projects = array();
-    $list = array();
-
     if ($handle = opendir('./projects')) {
       while (false !== ($entry = readdir($handle))) {
         if ($entry != "." && $entry != "..") {
-          array_push($projects, $entry);            
+          $projects[] = $entry;
         }
       }
       closedir($handle);
@@ -61,16 +58,30 @@ class Folio {
    */
 
   public function images($dir=''){
-    $dir = './projects/' . $dir;
+    $dir = 'projects/' . $dir;
     $root = scandir($dir); 
+
     foreach($root as $value) { 
-      if($value === '.' || $value === '..') {continue;} 
-      if(is_file("$dir/$value")) {$result[]="$dir/$value";continue;} 
-      foreach(find_all_files("$dir/$value") as $value) { 
-        $result[]=urlencode($value);
-      } 
-    } 
+      if($value === '.' || $value === '..') {
+        continue;
+      }
+      
+      if(is_file("$dir/$value") && preg_match("/.jpg|.jpeg|.gif|.png/i",$value)){
+        $result[]="$dir/$value";
+        continue;
+      }
+
+    }
+
     return array("src" => $result); 
+  }
+  
+  public function description($dir=''){    
+    $file = "projects/{$dir}/description.txt";
+    if(file_exists($file)){
+      $description = file_get_contents($file);
+    }
+    return $description;
   }
 
 }

@@ -1,6 +1,9 @@
 body { 
     font-family: Georgia, Times, serif; }
 
+a, a:visited { color: #111; text-decoration:none }
+a:hover { text-decoration: underline }
+
 header, #projects { padding: 100px 100px 0 100px; }
 
 header h1 { 

@@ -49,7 +49,7 @@ $projects = new Folio();
       <div class="project" id="{{ id }}">
       <h1>{{ title }}</h1>
       {{#images}}
-        <img src="{{ src }}">
+        <img src=" {{ src) }}">
       {{/images }}
         </div>
     </script>
