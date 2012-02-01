@@ -27,7 +27,7 @@ class Folio {
       $project_object[] = array("id" => json_encode($i),
                                 "title" => $project,
                                 "images" => $this->images($project),
-                                "description" => json_encode($this->description($project)));
+                                "description" => $this->description($project));
       $i++;
     }
     return $project_object;
@@ -81,7 +81,7 @@ class Folio {
     if(file_exists($file)){
       $description = file_get_contents($file);
     }
-    return $description;
+    return stripcslashes($description);
   }
 
 }

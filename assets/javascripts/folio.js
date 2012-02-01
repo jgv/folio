@@ -97,10 +97,12 @@ Folio.Views.Show = Support.CompositeView.extend({
   
   render: function(){
     var self = this;
+    var desc = unescape(self.model.get('description'));
     var data = {
       title: self.model.get('title'),
       images: self.model.get('images'),
-      id: self.model.get('id')
+      id: self.model.get('id'),
+      description: desc
     };
     proj = ich.show(data);
     $("#projects").append(proj);
