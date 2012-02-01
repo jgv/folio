@@ -76,6 +76,12 @@ class Folio {
     return array("src" => $result); 
   }
   
+  /*
+   *
+   * Get the description from a file called description.txt in a specficied dir
+   *
+   */
+  
   public function description($dir=''){    
     $file = "projects/{$dir}/description.txt";
     if(file_exists($file)){
