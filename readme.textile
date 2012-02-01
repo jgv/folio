@@ -4,3 +4,14 @@ p. Folio allows non-technical people to create beautiful portfolio websites usin
 
 p. This project was made at "319 Scholes":http://twitter.com/319scholes for "Art Hack Day":http://arthackday.net/319scholes/.
 
+h2. Preparing your Website
+
+p. In the @Projects@ directory you should create a folder for each project you would like to showcase. Give this folder should have the same name of your project. Next, inside of this folder create a file called @description.txt@. This file should just be a description your project. Be sure that you save it with the extension @.txt@ and not @.rtf@ or @.doc. Finally, include any images you would like to assocate with the project. Repeat this step for as many projects that you would like to showcase with Folio.
+
+h2. Uploading your Files
+
+p. To deploy Folio, simply copy all the files from the "Folio" directory on your computer to your websever. You will probably do this over FTP. Some webhosts allow you to do this with a web interface. Some good FTP applications are "Cyberduck":http://cyberduck.ch/ or "Transmit"http://panic.com/transmit/. You should be certain to copy all files and folders. You will probably want to upload these files to a folder on your server called "public_html" or "public". If you don't have a webhost its very easy to get setup with a service like "Dreamhost":http://dreamhost.com or "Media Temple":http://mediatemple.net. 
+
+h2. Help
+
+p. Github is a great place to ask questions or log bugs. Please log any issues on the Folio "devleopment page":https://github.com/jgv/folio.
