@@ -48,7 +48,12 @@ header p {
     margin-left: 100px;
 }
 
-#container h3 {
+h2 {
+    border-top: thin solid gray;
+    padding-top:20px;
+}
+
+.download {
     border-top: thin solid lightgray;
     padding-top:25px;
     font-weight:lighter;

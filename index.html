@@ -11,25 +11,35 @@
   <body>
 
 <a href="http://github.com/jgv/folio"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
+
     <header>
       <h1>Folio</h1><sup>(alpha)</sup>
       <p>The easiest way to create a portfolio website.</p>
     </header>
     
     <section id="container">
-      <p>Folio aims to be a simple way for non-technical people to create beautiful portfolio websites. By taking advantage of open directories, Folio will transform a simple folder structure into a great looking website for anyone to present their work. Below is a simple example:</p>
+      <p>Folio aims to be a simple way for non-technical people to create beautiful portfolio websites. By taking advantage of open directories, Folio will transform a simple folder structure into a great looking website for anyone to present their work. To use Folio you don't have to know how to code and you don't have to set up a database. Simply upload your edited files to a server and you are done&mdash; Folio handles the rest. Below is a simple example of what a Folio project could look like:</p>
         <img src="assets/images/folders.png" width="900px" />
-      <p>Extra options can be added in the <code>config.php</code> file, found at the root of the project.</p>
-      <h3>Development Goals</h3>
+
+      <h2>Preparing Your Website</h2>
+      <p>In the Projects directory you should create a folder for each project you would like to showcase. Each folder should have the same name of your project. Next, inside of this folder create a file called <code>description.txt</code>. This file should just be a description your project (it can be as long or as short as you would like). Be sure that you save it with the extension <code>.txt</code> and not <code>.rtf</code> or <code>.doc</code>. Finally, include any images you would like to assocate with the project. Repeat this step for as many projects that you would like to showcase with Folio.</p>
+      
+      <h3>Customizing the Homepage</h3>
+        <p>The current design of Folio allows you to customize the homepage of your website. You will be able to include a “headline” and a “byline”. Do so by editing the files <code>headline.txt</code> and <code>byline.txt</code> in the directory called <code>homepage-details</code>.</p>
+      
+      <h2>Uploading Your Files</h2>
+      <p>To deploy Folio, simply copy all the files from the “Folio” directory on your computer to your websever. You will probably do this over FTP. Some webhosts allow you to do this with a web interface. Some good FTP applications are <a href="http://cyberduck.ch/">Cyberduck</a> or <a href="http://panic.com/transmit/">Transmit</a>. You should be certain to copy all files and folders. You will probably want to upload these files to a folder on your server called “public_html” or “public”. If you don’t have a webhost its very easy to get setup with a service like <a href="http://dreamhost.com">Dreamhost</a> or <a href="http://mediatemple.net">Media Temple</a>.</p>
+
+      <h2>Development Goals</h2>
       <ul>
         <li>Detailed installation instructions</li>
-        <del><li>Individual project pages (coming soon!)</li></del>
+        <del><li>Individual project pages</li></del>
         <li>Test Suite</li>
-        <li>Configuration options should not be in a .php file</li>
+        <del><li>Configuration options should not be in a .php file</li></del>
         <del><li>Allow for full descriptions of projects</li></del>
         <li>Allow for themes</li>
       </ul>
-      <h3>Download</h3>
+      <h3 class="download">Download</h3>
       <a href="https://github.com/jgv/folio/zipball/master">Download a <code>.zip</code> of Folio</a>
     </section>
 
