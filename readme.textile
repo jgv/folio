@@ -1,8 +1,12 @@
 h1. Folio
 
-p. Folio allows non-technical people to create beautiful portfolio websites using the names of files and directories in the folder called "Projects". Simply upload the contents of the "Folio" folder to a server and it will just work.
+p. Folio allows non-technical people to create beautiful portfolio websites using the names of files and directories in the folder called "Projects" (no database needed). Simply upload the contents of the "Folio" folder to a server and it will just work.
 
 p. This project was made at "319 Scholes":http://twitter.com/319scholes for "Art Hack Day":http://arthackday.net/319scholes/.
+
+h2. Why Folio?
+
+p. With folio you can create a website without having to write any code or setup a database. Alternatives like Indexhibit or WordPress will force you to create a database no matter what. With Folio, your database is simply the folders you create in the @Projects@ directory.
 
 h2. Preparing your Website
 
