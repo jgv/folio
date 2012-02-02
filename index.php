@@ -1,6 +1,5 @@
 <?php  
-require_once('src/folio.php'); 
-require_once('config.php');
+require_once('src/folio.php');
 $projects = new Folio();
 ?>
 <!doctype html>

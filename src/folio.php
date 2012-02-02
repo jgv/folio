@@ -5,6 +5,17 @@ class Folio {
   function __construct($style=''){
     // style will at one point dictate css &c. right now this does nothing,,
 
+    
+
+    if(file_exists('homepage-details/headline.txt')){
+      $headline = file_get_contents('homepage-details/headline.txt');
+      define('HEADLINE', $headline);
+    }
+   
+    if(file_exists('homepage-details/byline.txt')){
+      $byline = file_get_contents('homepage-details/byline.txt');
+      define('BYLINE', $byline);      
+    }
   }
 
   /*
@@ -90,4 +101,4 @@ class Folio {
     return stripcslashes($description);
   }
 
-}
+}  
