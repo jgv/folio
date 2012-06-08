@@ -78,13 +78,13 @@ class Folio {
       }
       
       if(is_file("$dir/$value") && preg_match("/.jpg|.jpeg|.gif|.png/i",$value)){
-        $result[]="$dir/$value";
+        $result[]= array("src" => "$dir/$value");
         continue;
       }
 
     }
 
-    return array("src" => $result); 
+    return $result;
   }
   
   /*

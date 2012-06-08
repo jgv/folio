@@ -104,8 +104,14 @@ Folio.Views.Show = Support.CompositeView.extend({
       id: self.model.get('id'),
       description: desc
     };
+    console.log(data.images)
     proj = ich.show(data);
     $("#projects").append(proj);
+    
+    $('#gallery').cycle({
+      timeout: 0,
+      next: "#gallery, #gallery img"
+    });
     
     return this;
   

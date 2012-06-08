@@ -5,6 +5,7 @@ $projects = new Folio();
 <!doctype html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Folio</title>
     <script src="assets/javascripts/json2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
@@ -15,15 +16,16 @@ $projects = new Folio();
     <script src="assets/javascripts/backbone-support/composite_view.js"></script>
     <script src="assets/javascripts/backbone-support/swapping_router.js"></script>
     <script src="assets/javascripts/icanhaz.js"></script>
+    <script src="assets/javascripts/jquery.cycle.lite.js"></script>
     <script src="assets/javascripts/folio.js"></script>
     <link href="assets/stylesheets/normalize.css" rel="stylesheet" type="text/css" />
     <link href="assets/stylesheets/folio.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-
+  
     <header>
       <h1>
-        <a href="http://<?php echo $_SERVER['HTTP_HOST']  . $_SERVER['REQUEST_URI']; ?>"><?php echo HEADLINE ?></a>
+        <a href="http://<?php echo $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>"><?php echo HEADLINE ?></a>
       </h1>
       <p><?php echo BYLINE ?></p>
     </header>
@@ -40,21 +42,21 @@ $projects = new Folio();
       <h1><a href="#/projects/{{ id }}">{{ title }}</a></h1>
       {{#images}}
         <img src="{{ src }}">
-      {{/images }}
+      {{/images}}
         </div>
     </script>
 
     <script id="show" type="text/html">
       <div class="project" id="{{ id }}">
-      <h1>{{ title }}</h1>
-      {{#images}}
-        <img src=" {{ src }}">
-      {{/images }}
-      <p>{{ description }}</p>
+        <h1>{{ title }}</h1>
+        <div id="gallery">
+          {{#images}}
+            <img src="{{ src }}">
+          {{/images}}
         </div>
+        <p>{{ description }}</p>
+      </div>
     </script>
-
-
 
     <script type='text/json' id='bootstrap'>
       <?php echo $projects->to_json(); ?>
