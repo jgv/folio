@@ -1,11 +1,47 @@
 <?php
 
+include_once("theme.php");
+
 class Folio {
+  public $env;
+  public $theme;
+  public $themed;
 
   function __construct($style=''){
-    // style will at one point dictate css &c. right now this does nothing,,
 
-    
+    /*
+     * Determine our environemnt: production or development?
+     * We serve a different set of assets depending on the env.
+     *
+     */
+
+    $server_path = split(":", $_SERVER['HTTP_HOST']);
+
+    if ($server_path[0] == 'localhost'){
+      error_reporting(E_ALL ^ E_NOTICE);
+      $this->env = 'development';
+    } else {
+      $this->env = 'production';    
+    }
+          
+    /*
+     * Do we have custom theme?
+     *
+     */
+
+    $themes = scandir("themes");
+    foreach ($themes as $theme){
+      if (preg_match("/^\*/", $theme)) {
+        $this->theme = new Theme($theme);
+        $this->themed = true;
+        continue; // only get the first one. TODO: find a better solution
+      }
+    }
+
+    /*
+     * Configure headline/byline
+     *
+     */
 
     if(file_exists('homepage-details/headline.txt')){
       $headline = file_get_contents('homepage-details/headline.txt');
@@ -25,7 +61,7 @@ class Folio {
    */
   public function to_json(){   
     return json_encode(array("projects" => $this->projects()));    
-  }
+  }  
 
   /*
    *
@@ -101,4 +137,5 @@ class Folio {
     return stripcslashes($description);
   }
 
-}  
+}
+

@@ -1,12 +1,17 @@
 <?php  
+error_reporting(E_ALL ^ E_NOTICE);
 require_once('src/folio.php');
-$projects = new Folio();
+$folio = new Folio();
 ?>
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>Folio</title>
+    <?php if ($folio->env == 'production') {?>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+      <script src="assets/javascripts/production.js"></script>
+    <?php } else {?>     
     <script src="assets/javascripts/json2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
     <script src="assets/javascripts/underscore.js"></script>
@@ -18,8 +23,14 @@ $projects = new Folio();
     <script src="assets/javascripts/icanhaz.js"></script>
     <script src="assets/javascripts/jquery.cycle.lite.js"></script>
     <script src="assets/javascripts/folio.js"></script>
+    <?php } ?>
     <link href="assets/stylesheets/normalize.css" rel="stylesheet" type="text/css" />
     <link href="assets/stylesheets/folio.css" rel="stylesheet" type="text/css" />
+    <?php if ($folio->themed) {       
+      $folio->theme->get_css();
+      $folio->theme->get_js();
+    } ?>
+
   </head>
   <body>
   
@@ -39,11 +50,9 @@ $projects = new Folio();
 
     <script id="index" type="text/html">
       <div class="project" id="{{ id }}">
-      <h1><a href="#/projects/{{ id }}">{{ title }}</a></h1>
-      {{#images}}
-        <img src="{{ src }}">
-      {{/images}}
-        </div>
+        <h1><a href="#/projects/{{ id }}">{{ title }}</a></h1>
+        <a href="#/projects/{{ id }}"><img src="{{ image  }}"></a>
+      </div>
     </script>
 
     <script id="show" type="text/html">
@@ -59,7 +68,7 @@ $projects = new Folio();
     </script>
 
     <script type='text/json' id='bootstrap'>
-      <?php echo $projects->to_json(); ?>
+      <?php echo $folio->to_json(); ?>
     </script>
 
     <script type='text/javascript'>

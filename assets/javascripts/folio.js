@@ -32,7 +32,6 @@ Folio.Routers.Projects = Support.SwappingRouter.extend({
   
   show: function(projectId){
     var project = this.collection.get(projectId);
-    console.log(project);
     var view = new Folio.Views.Show({ model: project });
     this.swap(view);
   }  
@@ -67,7 +66,7 @@ Folio.Views.Index = Support.CompositeView.extend({
     this.collection.each(function(project){
       var data = {
         title: project.get('title'),
-        images: project.get('images'),
+        image: project.get('images')[0].src,
         id: project.get('id')
       };
       proj = ich.index(data);
@@ -90,7 +89,6 @@ Folio.Views.Index = Support.CompositeView.extend({
 
 Folio.Views.Show = Support.CompositeView.extend({
   initialize: function(){
-    console.log(this);
     _.bindAll(this, 'render');
 
   },
@@ -104,7 +102,6 @@ Folio.Views.Show = Support.CompositeView.extend({
       id: self.model.get('id'),
       description: desc
     };
-    console.log(data.images)
     proj = ich.show(data);
     $("#projects").append(proj);
     
