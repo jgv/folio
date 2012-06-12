@@ -1,14 +1,22 @@
 <?php
 
-include_once("theme.php");
+include_once(dirname(__FILE__) . "/theme.php");
 
 class Folio {
   public $env;
   public $theme;
-  public $themed;
+  public $host;
+  private $themed;
+  private $dir;
+  private $assets;
+  private $app_path;
 
   function __construct($style=''){
 
+    $this->dir = dirname(__FILE__);
+    $this->assets = $this->dir . "/assets";
+    $this->app_path = $this->dir . "/assets/javascripts";
+    $this->host = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     /*
      * Determine our environemnt: production or development?
      * We serve a different set of assets depending on the env.
@@ -23,7 +31,15 @@ class Folio {
     } else {
       $this->env = 'production';    
     }
-          
+
+    /*
+     * No script access.
+     */
+       
+    if (preg_match("/folio\.php$/", $_SERVER['PHP_SELF']) && $this->env == 'production'){
+      exit('No direct script access allowed');
+    }
+   
     /*
      * Do we have custom theme?
      *
@@ -51,6 +67,37 @@ class Folio {
     if(file_exists('homepage-details/byline.txt')){
       $byline = file_get_contents('homepage-details/byline.txt');
       define('BYLINE', $byline);      
+    }
+  }
+
+  /*
+   * Load the JavaScript assets that make up the application.
+   *
+   */
+
+  public function load_app(){
+    echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>";
+    if ($this->env != 'production') {
+
+      // the order of these scripts loading matters
+      $app_assets = array("assets/javascripts/json2.js",
+                          "assets/javascripts/underscore.js",
+                          "assets/javascripts/backbone.js",
+                          "assets/javascripts/backbone-localstorage.js",
+                          "assets/javascripts/backbone-support/support.js",
+                          "assets/javascripts/backbone-support/composite_view.js",
+                          "assets/javascripts/backbone-support/swapping_router.js",
+                          "assets/javascripts/icanhaz.js",
+                          "assets/javascripts/jquery.cycle.lite.js",
+                          "assets/javascripts/folio.js");
+
+      foreach($app_assets as $asset){
+        echo "<script src='$asset'></script>";
+      }
+
+    } else {
+      // production environment app
+      echo "<script src='$app_path/production.js'></script>";
     }
   }
 
@@ -138,4 +185,3 @@ class Folio {
   }
 
 }
-

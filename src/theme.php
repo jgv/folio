@@ -21,7 +21,7 @@ class Theme extends Folio {
       $csses = scandir($this->css_dir);
       
       foreach($csses as $css){
-        if($css === '.' || $css === '..') {
+        if($css === '.' || $css === '..' || $css === '.DS_Store') {
           continue;
         }
         echo "<link href='" . $this->css_dir . $css . "' rel='stylesheet' type='text/css'>\n";
@@ -34,7 +34,7 @@ class Theme extends Folio {
       $jses = scandir($this->js_dir);
       
       foreach($jses as $js){
-        if($js === '.' || $js === '..') {
+        if($js === '.' || $js === '..' || $js === '.DS_Store') {
           continue;
         }
         echo "<script src='" . $css . "' type='text/javascript'></script>";
