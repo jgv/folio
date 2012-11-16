@@ -19,6 +19,7 @@ class Theme extends Folio {
     $this->img_dir = $this->current_theme_dir . "/images";
     $this->css_files = $this->get_css();
     $this->js_files = $this->get_js();
+
     $document = new DOMDocument();
     $document->loadHTMLFile($this->dir . "/folio.html");
     $this->document = $document; // save doc to memory
@@ -49,9 +50,9 @@ class Theme extends Folio {
       echo "<script src='$app_path/production.js'></script>";
     }
 
-    $this->insert_css();
+    //$this->insert_css();
     //$this->insert_js();
-    $this->load_json();
+    //$this->load_json();
     $this->finalize();
   }
 

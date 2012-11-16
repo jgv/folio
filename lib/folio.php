@@ -1,7 +1,7 @@
 <?php
+ini_set('display_errors', 'On')
 error_reporting(E_ALL);
 include_once(dirname(__FILE__) . "/theme.php");
-include_once(dirname(__FILE__) . "/data.php");
 
 class Folio {
   private $env;
